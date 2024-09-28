@@ -7,6 +7,12 @@ ENV LISTEN_PORT 8080
 
 EXPOSE 8080
 
-RUN pip install -r requirements.txt
+COPY ./requirements.txt .
+
+RUN apt-get -qq update 
+RUN pip3 --quiet install --requirement requirements.txt \
+         --force-reinstall --upgrade
+
+COPY . .
 
 CMD ["python", "m", "flask", "run"

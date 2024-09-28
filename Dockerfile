@@ -15,4 +15,4 @@ RUN pip3 --quiet install --requirement requirements.txt \
 
 COPY . .
 
-CMD ["python", "m", "flask", "run"
+CMD ["python", "m", "flask", "run"]

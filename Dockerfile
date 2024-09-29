@@ -1,18 +1,14 @@
-# update 
-FROM python:3.8
+# syntax=docker/dockerfile:1
+FROM ubuntu:22.04
 
-COPY . /app
+# install app dependencies
+RUN apt-get update && apt-get install -y python3 python3-pip
+RUN pip install flask==3.0.*
 
-ENV LISTEN_PORT 8080
+# install app
+COPY server.py /
 
-EXPOSE 8080
-
-COPY ./requirements.txt .
-
-RUN apt-get -qq update 
-RUN pip3 --quiet install --requirement requirements.txt \
-         --force-reinstall --upgrade
-
-COPY . .
-
-CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
+# final configuration
+ENV FLASK_APP=hello
+EXPOSE 8000
+CMD ["flask", "run", "--host", "0.0.0.0", "--port", "8000"]

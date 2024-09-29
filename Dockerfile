@@ -9,6 +9,6 @@ RUN pip install flask==3.0.*
 COPY server.py /
 
 # final configuration
-ENV FLASK_APP=hello
+ENV FLASK_APP=server
 EXPOSE 8000
 CMD ["flask", "run", "--host", "0.0.0.0", "--port", "8000"]

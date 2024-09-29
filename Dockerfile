@@ -11,7 +11,7 @@ COPY server.py /
 # final configuration
 ENV FLASK_APP=server.py
 ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_RUN_PORT=17170
+ENV FLASK_RUN_PORT=17175
 
-EXPOSE 17170
-CMD ["flask", "run", "--host", "0.0.0.0", "--port", "17170"]
+EXPOSE 17175
+CMD ["flask", "run", "--host", "0.0.0.0", "--port", "17175"]
